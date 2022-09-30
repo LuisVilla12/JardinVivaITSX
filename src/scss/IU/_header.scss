@@ -1,0 +1,187 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.header{
+    background-color: v.$primario;
+    padding: 3rem;
+    &__contenido{
+        @include m.tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10rem;
+        }
+    }
+}
+.nav{
+    &__enlace{
+        text-align: center;
+        color: v.$blanco;
+        font-weight: bold;
+        font-size: 1.5rem;
+        @include m.tablet {
+            font-size:2rem;
+        }
+        &.activo{
+            &::after {
+                content: '';
+                display: block;
+                // margin-top: 10rem;
+                background-color: v.$blanco;
+                width: 8rem;
+                height: .2rem;
+                margin: 0 auto;
+            }
+        }
+    }   
+}
+
+.seccionT{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    &__grid{
+        @include m.tablet {
+            @include m.grid(2,2fr);
+            align-items: center;
+        }
+    }
+    &__contenido{
+        padding: 2rem;
+    }
+    &__titulo{
+        font-size: 6rem;
+        text-transform: uppercase;
+        color: v.$terciario;
+        margin: 2rem 1rem;
+    }
+    &__cbtn{
+        display: flex;
+        justify-content: flex-end
+    }
+    &__boton{
+        @include m.boton(v.$secundario,v.$blanco);
+        border-radius: 2rem;
+    }
+}
+
+.seccionC{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    &__grid{
+        @include m.tablet {
+            @include m.grid(3,5);
+            align-items: center;
+        }
+    }
+    &__contenido{
+        @include m.tablet {
+            grid-column: 2 / 4;
+        }
+        padding: 2rem;
+    }
+    &__img{
+        overflow: hidden;
+        order: -1;
+        @include m.tablet {
+            grid-column: 1 / 2;
+        }
+    }
+    &__titulo{
+        font-size: 4rem;
+        text-transform: uppercase;
+        color: v.$terciario;
+    }
+    &__texto{
+        text-align: justify;
+    }
+}
+
+.intereses{
+    &__titulo{
+        font-size: 5rem;
+        text-transform: uppercase;
+        color: v.$terciario;
+        margin: 2rem auto;
+    }
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    &__grid{
+        @include m.telefono {
+            @include m.grid(2,2rem);
+        }
+        @include m.tablet {
+            @include m.grid(4,2rem);
+        }
+    }
+}
+.interes{
+    &__mask{
+        overflow: hidden;
+        height: 20rem;
+    }
+    &__img{
+        cursor: pointer;
+        img{
+            height: 25rem;
+        }
+        transition: .3s ease-in-out all;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+    &__cbtn{
+        display: flex;
+        justify-content: center;
+    }
+    &__nombre{
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__btn{
+       @include m.boton(v.$secundario,v.$blanco); 
+       border-radius: 2rem;
+    }
+}
+
+.footer{
+    background-color: v.$terciario;
+
+    &__grid{
+        padding: 3rem;
+        @include m.tablet {
+            @include m.grid(3,4 rem);
+        }
+    }
+    &__mapa{
+        iframe{
+            width: 100%;
+        }
+    }
+    &__redes{
+        nav{
+            a{
+                display: block;
+                color: v.$blanco;
+                margin-bottom:2rem;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    }
+    &__descripcion{
+        margin-left: 2rem;
+        margin-top: 3rem;
+        p{
+            margin: 0;
+            color: v.$blanco;
+        }
+    }
+    &__copy{
+        background-color: darken( v.$terciario,  45);
+        p{
+            text-align: center;
+            color: v.$blanco;
+            margin: 0;
+            padding: 1rem;
+        }
+    }
+}
